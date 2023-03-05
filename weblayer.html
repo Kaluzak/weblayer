@@ -2,15 +2,126 @@
 <html>
     <head>
         <title>Weblayer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         <style>
-            .banner {
-                max-height: 520px;
-                max-width: 320;
-                background-image: url();
+            body {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 300;
+                line-height: 1.5;
+                color: #fefefe;
+                -webkit-font-smoothing: antialiased;
             }
+            .banner {
+                margin: auto;
+                height: 520px;
+                max-width: 320px;
+                background-image: url("https://raw.githubusercontent.com/Kaluzak/weblayer/c4eee242f537c82edd452ed22acb664825e688cb/img/2%20(1).png");
+                background-position: center;
+            }
+            .content {
+                padding: 158px 20px 5px 20px;
+                text-align: center;
+            }
+            h1 {
+                line-height:1.2 ;
+                color:white;
+                margin-bottom: ;
+            }
+            p {
+                color:white;
+            }
+            input {
+                margin: 8px 0;
+                padding: 13px;
+                border: 1px solid #111;
+                border-radius: 3px;
+                display: block;
+                box-sizing: border-box;
+                width: 100%;
+                font-weight: 600;
+            }
+            input[type=submit] {
+                background: rgb(246,214,26);
+                background: linear-gradient(90deg, rgba(246,214,26,1) 0%, rgba(197,107,34,1) 100%, rgba(0,212,255,1) 100%);
+                font-size: 15px;
+                color:white;
+                cursor: pointer;
+                margin-top: 14px;
+            }
+            ::placeholder { 
+                color: #111;
+                opacity: 1;
+              }
+            .fadeInUpBig {
+                -webkit-animation-name: fadeInUpBig;
+                animation-name: fadeInUpBig;
+                -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+                -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+                }
+                @-webkit-keyframes fadeInUpBig {
+                0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 20px, 0);
+                transform: translate3d(0, 20px, 0);
+                }
+                100% {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+                }
+                }
+                @keyframes fadeInUpBig {
+                0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 20px, 0);
+                transform: translate3d(0, 20px, 0);
+                }
+                100% {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+                }
+                } 
+                #successMessage {
+                    font-size: 20px;
+                }
+                .hide {
+                    display: none;
+                }
         </style>
     </head>
     <body>
-
+        <div class="banner fadeInUpBig">
+            <div class="content">
+                <h1>Hľadáme</br>práve teba</h1>
+                <p>Discover the solutions for industry and get a tailored offer now.</p>
+                <form id="webLayerForm" onsubmit="myFunction()" action="">
+                    <input id="name" type="text" placeholder="Your name" name="name">                
+                    <input id="email" type="email" placeholder="Your email" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required>
+                    <input type="submit" value="Experience now">
+                </form>
+                <div id="successMessage" class="hide">
+                    <p>Ďakujeme</p>
+                </div>
+            </div>
+        </div>
+        <script>
+        function myFunction() {
+            const elem = document.getElementById("webLayerForm");
+            const msg = document.getElementById("successMessage");
+            const email = document.getElementById("email");
+            const name = document.getElementById("name");
+            elem.classList.add("hide");
+            msg.classList.remove("hide");
+            msg.classList.add("fadeInUpBig");
+            event.preventDefault();
+            console.log("email:",email.value,"Meno:",name.value);  
+          }
+        </script>
     </body>
 </html>
